@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -78,7 +79,6 @@ class TransactionController extends Controller
     {
 
         $request->validate([
-            'user_id' => 'required|numeric',
             'amount' => 'required|numeric',
             'type' => 'required|in:income,expense',
             'description' => 'string|nullable',
@@ -86,7 +86,7 @@ class TransactionController extends Controller
 
 
         $transaction = Transaction::create([
-            'user_id' => $request->user_id,
+            'user_id' => Auth::user()->id,
             'amount' => $request->amount,
             'type' => $request->type,
             'description' => $request->description,
