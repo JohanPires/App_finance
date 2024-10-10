@@ -2,17 +2,14 @@
 
 ## Table des Matières
 
--   [À propos](#à-propos)
--   [Prérequis](#prérequis)
--   [Installation](#installation)
--   [Configuration](#configuration)
--   [Migration de la base de données](#migration-de-la-base-de-données)
--   [Démarrage du serveur de développement](#démarrage-du-serveur-de-développement)
+-   [À propos]
+-   [Prérequis]
+-   [Installation]
+-   [Configuration]
+-   [Migration de la base de données]
+-   [Démarrage du serveur de développement]
 -   [Authentification avec Laravel Sanctum](#authentification-avec-laravel-sanctum)
 -   [Génération de la documentation API avec Swagger](#génération-de-la-documentation-api-avec-swagger)
--   [Tests](#tests)
--   [Contribution](#contribution)
--   [Licence](#licence)
 
 ## À propos
 
@@ -42,9 +39,9 @@ Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votr
     composer install
     ```
 
-## Migration
+## Migration de la base de données
 
-1. Lancer la migration de la base de donnée :
+1. Lancer la migration de la base de données :
 
     ```bash
     php artisan migrate
@@ -56,10 +53,18 @@ Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votr
     php artisan db:seed
     ```
 
-## Démarrer le server
+## D2marage du server
 
 1. Commande pour lancer le server :
 
     ```bash
     php artisan serve
     ```
+
+## Génération de la documentation API avec Swagger
+
+1. Commande pour lancer la génération du swagger
+
+```bash
+  php artisan l5-swagger:generate
+```

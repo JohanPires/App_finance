@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -99,8 +100,9 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('auth-token')->plainTextToken;
+        $id = $user->id;
 
-        return response()->json(['token' => $token]);
+        return response()->json(['token' => $token, 'id' => $id]);
     }
 
      /**
@@ -118,9 +120,10 @@ class UserController extends Controller
      *     )
      * )
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $request->user()->currentAccessToken()->delete();
+
+        Auth::user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Déconnexion']);
     }
 }

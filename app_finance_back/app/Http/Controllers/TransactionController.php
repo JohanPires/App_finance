@@ -82,6 +82,8 @@ class TransactionController extends Controller
             'amount' => 'required|numeric',
             'type' => 'required|in:income,expense',
             'description' => 'string|nullable',
+            'categorie' => 'string|nullable',
+            'date' => 'string|nullable',
         ]);
 
 
@@ -90,6 +92,8 @@ class TransactionController extends Controller
             'amount' => $request->amount,
             'type' => $request->type,
             'description' => $request->description,
+            'categorie' => $request->categorie,
+            'date' => $request->date,
         ]);
 
         return response()->json($transaction, 201);
@@ -139,6 +143,8 @@ class TransactionController extends Controller
             'amount' => 'required|numeric',
             'type' => 'required|in:income,expense',
             'description' => 'string|nullable',
+            'date' => 'string|nullable',
+            'categories' => 'string|nullable',
         ]);
 
 
@@ -209,7 +215,7 @@ class TransactionController extends Controller
      */
 
     public function totalAmount($id) {
-        $allTransactions =Transaction::where('user_id', $id)->get();
+        $allTransactions =Transaction::where('user_id',$id)->get();
         $income = 0;
         $expense = 0;
 

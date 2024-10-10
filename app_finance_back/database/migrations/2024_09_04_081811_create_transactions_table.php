@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('type', ['income', 'expense']);
             $table->string('description')->nullable();
             $table->string('date')->nullable();
+            $table->enum('categorie', ['alimentation', 'logement', 'loisirs', 'transport', 'assurance', 'salaire/gain']);
             $table->timestamps();
         });
     }
